@@ -1,32 +1,18 @@
-function happyCoding(nickname){
-    let value = 0 
-    switch(nickname.toLowerCase()){
-        case "happy coding":
-            value = 1
-            break
-        case "coding happy":
-            value = 2
-            break
-        case "coding everyday":
-            value = 3
-            break
-        case "happy programmer":
-            value = 4
-            break
-        case "unhappy codewarrior":
-            value = 5
-            break
-        default:
-            value = 5
+function duplicateCount(text){
+    let count = 0
+    if(text === "") return 0
+    let countedObj = text.split("").reduce((acc,curr)=>{
+        acc[curr] = (acc[curr] || 0) + 1
 
-        
-    }
-    return value
-    //Happy Coding ^_^
-    
+        return acc
+    },{})
+
+    Object.values(countedObj).forEach(item => {
+        item > 1 ? count += 1 : null
+    })
+    return count
+    //...
   }
 
 
-  console.log(happyCoding("Happy coding"))
-
-
+  console.log(duplicateCount("Indivisibility"))
